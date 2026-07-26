@@ -19,7 +19,7 @@
 * **Smart Potfile Management**:
     * **Pre-Crack Analysis**: Check target lists against your potfile *before* starting an attack to see what is already cracked.    
 * **Interactive Terminal**: Full pseudo-terminal (PTY) access to the underlying shell for manual overrides or running custom Hashcat commands directly from the GUI.
-* **Multi-Language Support**: Fully localized interface available in **English** and **Chinese (中文)**.
+* **Multi-Language Support**: Fully localized interface available in **English** and **Hebrew (עברית)**.
 * **Hardware Monitoring**: Real-time GPU temperature and power usage tracking.
     * *Note: Power draw metrics currently support **NVIDIA GPUs** only via `nvidia-smi`.*
 * **Escrow Integration & Auto-Uploads**: 

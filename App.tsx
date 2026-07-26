@@ -628,6 +628,12 @@ function App() {
 
   useEffect(() => { localStorage.setItem('reactor_config', JSON.stringify(config)); }, [config]);
 
+  useEffect(() => {
+    const dir = i18n.language.startsWith('he') ? 'rtl' : 'ltr';
+    document.documentElement.dir = dir;
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   // --- QUEUE PROCESSOR EFFECT ---  
   useEffect(() => {
       const processQueue = async () => {
@@ -1494,14 +1500,14 @@ function App() {
         <div className="p-4 border-t border-slate-800 hidden lg:block shrink-0 bg-slate-950 z-50">
            <div className="relative">
               <button onClick={() => setIsLangMenuOpen(!isLangMenuOpen)} className="w-full flex items-center justify-between p-2.5 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white hover:border-slate-700 transition-all text-xs">
-                  <div className="flex items-center gap-2"><Languages size={14} className="text-indigo-400" /><span>{i18n.language.startsWith('zh') ? '中文' : 'English'}</span></div>
+                  <div className="flex items-center gap-2"><Languages size={14} className="text-indigo-400" /><span>{i18n.language.startsWith('he') ? 'עברית' : 'English'}</span></div>
                   <ChevronUp size={14} className={`transition-transform duration-200 ${isLangMenuOpen ? 'rotate-180' : ''}`} />
               </button>
               {isLangMenuOpen && (
                   <div className="absolute bottom-full left-0 w-full mb-2 bg-slate-900 border border-slate-800 rounded-lg shadow-xl overflow-hidden flex flex-col z-50 animate-in slide-in-from-bottom-2 fade-in duration-200">
                       <button onClick={() => { i18n.changeLanguage('en'); setIsLangMenuOpen(false); }} className={`flex items-center justify-between w-full px-3 py-2 text-xs hover:bg-slate-800 transition-colors ${i18n.language.startsWith('en') ? 'text-white font-bold bg-slate-800/50' : 'text-slate-400'}`}><span>English</span>{i18n.language.startsWith('en') && <CheckCircle size={12} className="text-emerald-500" />}</button>
                       <div className="h-px bg-slate-800 mx-2"></div>
-                      <button onClick={() => { i18n.changeLanguage('zh'); setIsLangMenuOpen(false); }} className={`flex items-center justify-between w-full px-3 py-2 text-xs hover:bg-slate-800 transition-colors ${i18n.language.startsWith('zh') ? 'text-white font-bold bg-slate-800/50' : 'text-slate-400'}`}><span>中文</span>{i18n.language.startsWith('zh') && <CheckCircle size={12} className="text-emerald-500" />}</button>
+                      <button onClick={() => { i18n.changeLanguage('he'); setIsLangMenuOpen(false); }} className={`flex items-center justify-between w-full px-3 py-2 text-xs hover:bg-slate-800 transition-colors ${i18n.language.startsWith('he') ? 'text-white font-bold bg-slate-800/50' : 'text-slate-400'}`}><span>עברית</span>{i18n.language.startsWith('he') && <CheckCircle size={12} className="text-emerald-500" />}</button>
                   </div>
               )}
            </div>
